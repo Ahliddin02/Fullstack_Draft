@@ -1,0 +1,75 @@
+import { useState } from "react";
+import { BsEmojiSmile } from "react-icons/bs";
+import { AiOutlinePaperClip } from "react-icons/ai";
+import { BiSend } from "react-icons/bi";
+import { useEffect } from "react";
+
+function InputMessages({ contact, input, setInput, oldMessages }) {
+  const [valueInputMessages, setInputMessages] = useState("");
+  // const [idMessage, setIdMessage] = useState(7);
+  // const [message2, setMessage] = useState();
+  const [text, setText] = useState("");
+
+  useEffect(() => {
+    const draft = localStorage.getItem("draft");
+    if (draft) {
+      setText(draft);
+    }
+  }, []);
+
+  // function onSendMessage(e) {
+  //   e.preventDefault();
+  //   const newMessage = {
+  //     id: idMessage,
+  //     text: inputMessages,
+  //     sender: 1000,
+  //     receiver: contact.id,
+  //   };
+  //   setInput([...input, newMessage]);
+  //   setIdMessage(idMessage + 1);
+  //   setInputMessages("");
+  // }
+
+  function onMessageChange(e) {
+    const value = e.target.value;
+    setText(value);
+    localStorage.setItem("draft", value);
+  }
+
+  function onSendMessage(e) {
+    e.preventDefault();
+    const messagesString = localStorage.getItem("messages");
+    const oldMessages = messagesString ? JSON.parse(messagesString) : [];
+    const lastId = oldMessages.length ? oldMessages[oldMessages.length - 1].id : 0;
+
+    const inputData = [
+      ...oldMessages,
+      { id: lastId + 1, text: valueInputMessages, sender: 1000, receiver: contact.id },
+    ];
+    localStorage.setItem("messages", JSON.stringify(inputData));
+    // setMessage(input);
+  }
+
+  // useEffect( /////() => {});
+
+  return (
+    <form>
+      <label>
+        <input
+          placeholder="Написать сообщения... "
+          className="input"
+          value={text}
+          type="text"
+          // onChange={(e) => setInputMessages(e.target.value)}
+          onChange={onMessageChange}
+        />
+        <button onClick={onSendMessage} className="microphon">
+          <AiOutlinePaperClip className="clips__icon" />
+          <BsEmojiSmile className="smile__icon" />
+          <BiSend />
+        </button>
+      </label>
+    </form>
+  );
+}
+export default InputMessages;

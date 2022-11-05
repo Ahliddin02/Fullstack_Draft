@@ -1,0 +1,52 @@
+body {
+    background-color: #a8a59e;
+}
+.users {
+    display: flex;
+    margin-top: 150px;
+}
+
+.main {
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    width: 350px;
+    border-radius: 5px;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.id {
+    padding-left: 35px;
+    padding-top: 15px;
+}
+.names {
+    margin-top: 15px;
+    padding-left: 35px;
+}
+.name {
+    padding: 0 10px 0 0;
+}
+.age {
+    margin-top: 15px;
+    padding-left: 35px;
+}
+.phone {
+    margin-top: 15px;
+    padding-left: 35px;
+}
+.address {
+    margin-top: 15px;
+    padding-left: 35px;
+}
+.icons {
+    margin-left: 80%;
+    font-size: 30px;
+    margin-top: -8%;
+}
+.icons__facebook {
+    fill: #4267B2;
+}
+.icons__telegram {
+    color: #0088cc;
+}
+h2 {
+    color: blue;
+}

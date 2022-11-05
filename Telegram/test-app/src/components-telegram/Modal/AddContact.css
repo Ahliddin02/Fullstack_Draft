@@ -1,0 +1,52 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  height: 45px;
+  /* padding-top: 30px; */
+  padding: 30px 0 30px 10px;
+  /* width: 100%; */
+  /* background-color: grey; */
+  /* position: fixed; */
+  /* z-index: 50; */
+  /* display: flex; */
+  /* align-items: center; */
+}
+p {
+  margin: 20px;
+}
+
+.burger-btn {
+  width: 20px;
+  height: 22px;
+  margin-left: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.burger-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 20px;
+  background-color: grey;
+  height: 2px;
+}
+.burger-btn span {
+  position: absolute;
+  top: 10px;
+  width: 20px;
+  background-color: grey;
+  height: 2px;
+}
+.burger-btn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 20px;
+  background-color: grey;
+  height: 2px;
+}
